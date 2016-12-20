@@ -211,13 +211,11 @@ text {
 }
 
 .field lose {
-  /* Positioning. */
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  /* Appearance. */
   background: #abe;
   display: none;
   z-index: 10;
@@ -233,29 +231,25 @@ text {
   display: block;
 }
 
-.field lose div {
-  padding: 80px;
-}
-
 .field win {
   position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   background: yellow;
   display: none;
   z-index: 10;
+}
+
+.field win text {
+  color: #000000;
   text-align: center;
-  font-size: 25px;
+  font-size: 36pt;
 }
 
 .field win:hover {
   display: block;
-}
-
-.field win div {
-  padding: 80px;
 }
 
 @keyframes close-left {
