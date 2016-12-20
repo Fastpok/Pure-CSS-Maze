@@ -1,0 +1,281 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: #FFFFFF;
+  z-index: 0;
+  font-family: "Roboto", sans-serif;
+  /* Hide vertical scrollbar. */
+  overflow: hidden;
+}
+
+text {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 10pt;
+}
+
+.field {
+  width: 550px;
+  height: 550px;
+  position: relative;
+  animation: you-spin-me-right-round 40s infinite linear;
+}
+
+.field tile {
+  text-align: center;
+  font-size: 10px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  z-index: 1;
+  /* cursor: url(man.svg), auto; */
+  cursor: crosshair;
+}
+
+.field tile[y1] {
+  top: 0px;
+}
+
+.field tile[y2] {
+  top: 50px;
+}
+
+.field tile[y3] {
+  top: 100px;
+}
+
+.field tile[y4] {
+  top: 150px;
+}
+
+.field tile[y5] {
+  top: 200px;
+}
+
+.field tile[y6] {
+  top: 250px;
+}
+
+.field tile[y7] {
+  top: 300px;
+}
+
+.field tile[y8] {
+  top: 350px;
+}
+
+.field tile[y9] {
+  top: 400px;
+}
+
+.field tile[y10] {
+  top: 450px;
+}
+
+.field tile[y11] {
+  top: 500px;
+}
+
+.field tile[x1] {
+  left: 0px;
+}
+
+.field tile[x2] {
+  left: 50px;
+}
+
+.field tile[x3] {
+  left: 100px;
+}
+
+.field tile[x4] {
+  left: 150px;
+}
+
+.field tile[x5] {
+  left: 200px;
+}
+
+.field tile[x6] {
+  left: 250px;
+}
+
+.field tile[x7] {
+  left: 300px;
+}
+
+.field tile[x8] {
+  left: 350px;
+}
+
+.field tile[x9] {
+  left: 400px;
+}
+
+.field tile[x10] {
+  left: 450px;
+}
+
+.field tile[x11] {
+  left: 500px;
+}
+
+.field tile[wall] {
+  background: #333;
+}
+
+.field tile[wall]:hover ~ lose {
+  display: block;
+}
+
+.field tile[clear] {
+  background: #eee;
+}
+
+.field tile[clear]:hover {
+  background: #abe;
+}
+
+.field tile[start] {
+  background: green;
+}
+
+.field tile[finish] {
+  background: blue;
+}
+
+.field tile[finish]:hover ~ win {
+  display: block;
+}
+
+.field tile[trap-close-left] {
+  background: #333;
+  z-index: 2;
+  animation: close-left 4s infinite linear;
+}
+
+.field tile[trap-close-left]:hover ~ lose {
+  display: block;
+}
+
+.field tile[trap-close-bottom] {
+  background: #333;
+  z-index: 2;
+  animation: close-bottom 4s infinite linear;
+}
+
+.field tile[trap-close-bottom]:hover ~ lose {
+  display: block;
+}
+
+.field [for="button-1"] > tile, .field tile[button-2] {
+  background: brown;
+}
+
+.field tile[trap-button-1] {
+  background: #333;
+  z-index: 1;
+}
+
+.field tile[trap-button-1]:hover ~ lose {
+  display: block;
+}
+
+.field tile[trap-button-1] {
+  transition: transform 2s linear;
+}
+
+.field #button-1 {
+  position: absolute;
+  left: -9999;
+}
+
+.field #button-1:checked ~ tile[trap-button-1] {
+  transform: translateY(-50px);
+}
+
+.field lose {
+  /* Positioning. */
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* Appearance. */
+  background: #abe;
+  display: none;
+  z-index: 10;
+}
+
+.field lose text {
+  color: #000000;
+  text-align: center;
+  font-size: 36pt;
+}
+
+.field lose:hover {
+  display: block;
+}
+
+.field lose div {
+  padding: 80px;
+}
+
+.field win {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: yellow;
+  display: none;
+  z-index: 10;
+  text-align: center;
+  font-size: 25px;
+}
+
+.field win:hover {
+  display: block;
+}
+
+.field win div {
+  padding: 80px;
+}
+
+@keyframes close-left {
+  50% {
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes close-bottom {
+  50% {
+    transform: translateY(50px);
+  }
+}
+
+@keyframes you-spin-me-right-round {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
