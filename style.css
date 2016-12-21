@@ -13,7 +13,6 @@ body {
   background: #FFFFFF;
   z-index: 0;
   font-family: "Roboto", sans-serif;
-  /* Hide vertical scrollbar. */
   overflow: hidden;
 }
 
@@ -33,7 +32,6 @@ text {
   width: 550px;
   height: 550px;
   position: relative;
-  animation: you-spin-me-right-round 40s infinite linear;
 }
 
 .field tile {
@@ -44,7 +42,6 @@ text {
   height: 50px;
   position: absolute;
   z-index: 1;
-  /* cursor: url(man.svg), auto; */
   cursor: crosshair;
 }
 
@@ -184,29 +181,46 @@ text {
   display: block;
 }
 
-.field [for="button-1"] > tile, .field tile[button-2] {
+.field [for="button-1"] > tile, 
+.field [for="button-2"] > tile,
+.field [for="button-3"] > tile,
+.field [for="button-4"] > tile {
   background: brown;
 }
 
-.field tile[trap-button-1] {
+.field tile[trap-button-1],
+.field tile[trap-button-2],
+.field tile[trap-button-3],
+.field tile[trap-button-4] {
   background: #333;
   z-index: 1;
 }
 
-.field tile[trap-button-1]:hover ~ lose {
+.field tile[trap-button-1]:hover ~ lose,
+.field tile[trap-button-2]:hover ~ lose,
+.field tile[trap-button-3]:hover ~ lose,
+.field tile[trap-button-4]:hover ~ lose {
   display: block;
 }
 
-.field tile[trap-button-1] {
+.field tile[trap-button-1],
+.field tile[trap-button-2],
+.field tile[trap-button-3],
+.field tile[trap-button-4] {
   transition: transform 2s linear;
 }
 
-.field #button-1 {
-  position: absolute;
-  left: -9999;
+.field #button-1,
+.field #button-2,
+.field #button-3,
+.field #button-4,{
+  display: none;
 }
 
-.field #button-1:checked ~ tile[trap-button-1] {
+.field #button-1:checked ~ tile[trap-button-1],
+.field #button-2:checked ~ tile[trap-button-2],
+.field #button-3:checked ~ tile[trap-button-3],
+.field #button-4:checked ~ tile[trap-button-4] {
   transform: translateY(-50px);
 }
 
@@ -242,7 +256,7 @@ text {
   z-index: 10;
 }
 
-.field win text {
+.field win > text {
   color: #000000;
   text-align: center;
   font-size: 36pt;
@@ -250,6 +264,44 @@ text {
 
 .field win:hover {
   display: block;
+}
+
+.field .map {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.field next {
+  position: absolute; 
+  left: 250px; 
+  top: 0px;
+  width: 50px;
+  height: 50px;
+  background: green;
+}
+
+.field next:hover {
+  left: 0px !important;
+  top: 0px !important;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+}
+
+.field next:hover > .map {
+  display: block;
+}
+
+.map .map {
+  animation: you-spin-me-right-round 40s infinite linear;
+}
+
+win win win {
+  transform: scale(5);
 }
 
 @keyframes close-left {
