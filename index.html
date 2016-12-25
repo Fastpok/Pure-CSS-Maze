@@ -332,7 +332,11 @@
                                                 Level 2 complete!<br><br>ARE YOU READY!?
                                           </text>
 
-                                          <next>
+                                          <audio loop id="music">
+                                                <source src="DeadOrAlive-YouSpinMeRound.mp3" type="audio/mpeg">
+                                          </audio>
+
+                                          <next onmouseover="document.getElementById('music').play()">
                                                 <text>
                                                       FINAL<br>LEVEL
                                                 </text>
@@ -495,7 +499,7 @@
                                                       <tile y11 x11 wall></tile>
 
                                                       <tile y2 x3 trap-button-3></tile>
-                                                      <tile y6 x3 trap-button-4></tile>
+                                                      <tile y6 x3 trap-button-4></tile>                                    
 
                                                       <lose>
                                                             <text>
